@@ -3,21 +3,40 @@
 <p>Welcome to my website on ColdFusion cfinclude usage!</p>
 
 <cfset firstname="Babu">
-<cfparam name="firstName" default="User">
 <cfoutput>
 Hello #firstname#.
-</cfoutput>
-<cfif IsDefined("firstName")>
-  Hello #firstname#!
-<cfelse>
-  Hello stranger!
-</cfif>
-
+</cfoutput><br /><br />
 <cfloop list="ColdFusion,HTML;XML" index="ListItem" delimiters=",;">
   <cfoutput>
    #ListItem#<br />
  </cfoutput>
 </cfloop>
-<cfinclude template="cfarray.cfm">
+<cfset firstname1="Barney">
+<cfparam name="firstName1" default="Ozzy">
+<cfoutput>
+Hello #firstName1#
+  </cfoutput>
+  <cfif IsDefined("firstName")>
+  <cfoutput>
+  Hello1 #firstName1#!
+  </cfoutput>
+<cfelse>
+  Hello stranger!
+</cfif><br />
+<cfloop from="1" to="5" index="i">
+  <cfoutput>
+  #i#<br />
+  </cfoutput>
+</cfloop>
+
+<cfquery name="MySQLQuery" dataSource="Testing1">
+SELECT * FROM employees 
+</cfquery>
+<ul>
+    <cfoutput query="MySQLQuery">
+        <li>#emp_name#</li>
+    </cfoutput>
+</ul>
 <cfinclude template="cflist.cfm">
+<cfinclude template="cfarray.cfm">
 <cfinclude template="footer.cfm">

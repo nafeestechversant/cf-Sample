@@ -1,12 +1,16 @@
 <cfset coldfusion_list = "Lists,Arrays,Structures">
 <cfloop list="#coldfusion_list#" index="i">
-	<cfoutput> #i#</cfoutput>
+	<cfoutput> #i#</cfoutput><br />
 </cfloop>
-listAppend(coldfusion_list, "Functions")
+<cfoutput>#listLen(coldfusion_list)#</cfoutput><br />
 <cfloop list="#coldfusion_list#" index="i">
-	<cfoutput> #i#</cfoutput>
+	<cfoutput> #i#</cfoutput><br />
 </cfloop>
-listPrepend(coldfusion_list, "Functions End")
+
 <cfloop list="#coldfusion_list#" index="i">
-	<cfoutput> #i#</cfoutput>
+	<cfoutput> #i#</cfoutput><br />
 </cfloop>
+
+<cfoutput>
+   #DateFormat(Now(), "ddd dd mmmm, yyyy")#
+</cfoutput>
