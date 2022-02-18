@@ -1,14 +1,3 @@
-<cfquery name="MySQLQuery" dataSource="Testing1">
-SELECT * FROM employees 
-</cfquery>
-
-<ul>
-    <cfoutput query="MySQLQuery">
-        <li>#emp_name#</li>
-    </cfoutput>
-</ul>
-<cfdump var="#MySQLQuery#">
-
 <cfset  request.dsn="Testing1">
 <cfset request.un="root">
 <cfset request.pw="">
@@ -28,28 +17,38 @@ SELECT * FROM employees
 
 
 
-<table align="center">
+<table align="left">
 <caption>Employees Register</caption>
-<form method="POST" action="cf_crudactionpage.cfm">
-<tr><th>Employee Name</th><td><input type="text" name="employeename" required/></td></tr>
-<tr><th>Job Name</th><td><input type="text" name="jobname" required/></td></tr>
-<tr><th>Manager id</th><td><select  name="managerid" required>
-<option value="">--select manager--</option>
-<cfoutput>
-<cfloop QUERY = "getallmanagers" >
+<form method="POST" action="insert_action.cfm">
+<tr><th>Employee Name</th>
+><input type="hidden" name="emp_id" value="" >
+<td><input type="text" name="emp_name" required/></td>
+</tr>
+<tr><th>Job Name</th>
+<td><input type="text" name="job_name" required/></td>
+</tr>
+<tr><th>Manager id</th
+><td><select  name="manager_id" required>
+<option value="">Select Manager</option>
     <option value="1">Assistant Manager</option>
-	 <option value="2">Senior Assistant Manager</option>
-	 <option value="3">Project Manager</option>
-</cfloop>
-    </cfoutput>
+	<option value="2">Senior Assistant Manager</option>
+	<option value="3">Project Manager</option>
 </select>
 </td></tr>
-<tr><th>Hire date</th><td><input type="date" name="hiredate" required/></td></tr>
-<tr><th>Salary</th><td><input type="number" name="salary" required/></td></tr>
-<tr><th>Commission</th><td><input type="text" name="commission" required/></td></tr>
-<tr><th>Department Id</th><td><select  name="departmentid" required>
+<tr><th>Hire date</th>
+<td><input type="date" name="hire_date" required/></td>
+</tr>
+<tr><th>Salary</th>
+<td><input type="number" name="salary" required/></td>
+</tr>
+<tr><th>Commission</th>
+<td><input type="text" name="commission" required/></td>
+</tr>
+<tr>
+<th>Department Id</th>
+<td><select  name="dep_id" required>
 <cfoutput>
-<option value="">--select department--</option>
+<option value="">Select Department--</option>
     <cfloop QUERY="getalldepartments">
     <option value="#getalldepartments.dep_id#">#getalldepartments.dep_name#</option>
 
@@ -60,14 +59,14 @@ SELECT * FROM employees
 
 
 
-<tr><td colspan="2"> <input type="submit" name="registerbtn" value="Register"/></td></tr>
+<tr><td colspan="2"> <input type="submit" value="Register"/></td></tr>
 </form>
 
 </table>
 
 <br><br>
 
-<cfquery name = "getemployees" datasource = "#request.dsn#" username = "#request.un#" password = "#request.pw#">
+<!--<cfquery name = "getemployees" datasource = "#request.dsn#" username = "#request.un#" password = "#request.pw#">
    select * from employees;
 </cfquery>
 <table border="1" align="center">
@@ -110,26 +109,5 @@ SELECT * FROM employees
 </tbody>
 
 
-</table>
-
-<script>
-/*
-  $.ajax({
-      type: "POST",
-      url: "bin/process.php",
-      data: dataString,
-      success: function () {
-        $("#contact_form").html("<div id='message'></div>");
-        $("#message")
-          .html("<h2>Contact Form Submitted!</h2>")
-          .append("<p>We will be in touch soon.</p>")
-          .hide()
-          .fadeIn(1500, function () {
-            $("#message").append(
-              "<img id='checkmark' src='images/check.png' />"
-            );
-          });
-      }
-    });
-    */
-</script> 
+</table>-->
+ 
