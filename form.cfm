@@ -176,7 +176,17 @@
 
 </CFIF>
 </CFIF>
-
+<tr><td>
+<form method="POST" action="generate_pdf.cfm">
+<input type="submit" value="Generate Pdf">
+</form>
+</td>
+<td>
+<form method="POST" action="excel.cfm">
+<input type="submit" value="Generate Spreadsheet">
+</form>
+</td>
+</tr>
 </table>
 
 

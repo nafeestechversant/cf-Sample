@@ -29,14 +29,8 @@ Hello #firstName1#
   </cfoutput>
 </cfloop>
 
-<cfquery name="MySQLQuery" dataSource="Testing1">
-SELECT * FROM employees 
-</cfquery>
-<ul>
-    <cfoutput query="MySQLQuery">
-        <li>#emp_name#</li>
-    </cfoutput>
-</ul>
+
+
 <cfinclude template="cflist.cfm">
 <cfinclude template="cfarray.cfm">
 <cfinclude template="footer.cfm">
