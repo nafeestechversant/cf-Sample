@@ -11,6 +11,18 @@
 	<cfoutput> #i#</cfoutput><br />
 </cfloop>
 
-<cfoutput>
+<p><cfoutput>
    #DateFormat(Now(), "ddd dd mmmm, yyyy")#
-</cfoutput>
+</cfoutput></p>
+
+<p><cfscript>
+someArray = [1,2,3,4];
+someList = arrayToList(someArray,"|");
+writeOutput(someList);
+</cfscript></p>
+<p><cfscript>
+list = "coldfusion;php;java;sql";
+getArray = listToArray(list,";");
+someJSON = serializeJSON(getArray);
+writeOutput(someJSON);
+</cfscript></p>
