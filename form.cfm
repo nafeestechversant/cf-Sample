@@ -11,8 +11,8 @@
 
 <cfquery name="DeleteEmployee" 
     datasource="Testing1"> 
-        DELETE FROM Employee 
-        WHERE emp_id = #Form.DELID# 
+        DELETE FROM employees 
+        WHERE emp_id = #URL.ID# 
 </cfquery> 
 
 </CFIF>
@@ -116,6 +116,16 @@
 <td>#commission#</td>
 <td>#dep_id#</td>
 <td>
+<form action="form.cfm?From=Edit&ID=#emp_id#" method="post">
+<input type="submit" value="Edit">
+</form>
+</td>
+<td>
+
+<form action="form.cfm?From=Delete&ID=#emp_id#" method="post">
+
+<input type="submit" value="Delete">
+</form>
 </td>
 </tr>
 </CFOUTPUT>
@@ -131,6 +141,7 @@
 <CFELSE>
 
 <CFOUTPUT QUERY="GetData">
+<!--- <CFIF #URL.DELID# IS #GetData.emp_id#> --->
 <tr>
 <td>#emp_id#</td>
 <td>#emp_name#</td>
@@ -150,11 +161,13 @@
 </td>
 <td>
 
-<form action="form.cfm?From=Delete&DELID=#emp_id#" method="post">
+<form action="form.cfm?From=Delete&ID=#emp_id#" method="post">
+
 <input type="submit" value="Delete">
 </form>
 </td>
 </tr>
+
 </CFOUTPUT>
 
 </CFIF>
